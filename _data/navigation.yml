@@ -1,7 +1,7 @@
 # main links
 main:
   - title: "Cateagories"
-    url: https://panwoo1.github.io/categories/
+    url: /categories/
   - title: "About"
     url: https://panwoo1.github.io/about/
   # - title: "Sample Posts"
