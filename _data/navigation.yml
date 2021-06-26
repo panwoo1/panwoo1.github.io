@@ -6,7 +6,7 @@ main:
     url: /about/
   - title: "tags"
     url: /tags/
-  title: "year"
+  - title: "year"
     url: /year-archive/
   # - title: "Sitemap"
   #   url: /sitemap/
