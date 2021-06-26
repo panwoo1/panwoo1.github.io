@@ -4,9 +4,9 @@ main:
     url: /categories/
   - title: "About"
     url: https://panwoo1.github.io/about/
-  # - title: "Sample Posts"
-  #   url: /year-archive/
-  # - title: "Sample Collections"
-  #   url: /collection-archive/
+  - title: "tags"
+    url: /tags/
+  title: "year"
+    url: /year-archive/
   # - title: "Sitemap"
   #   url: /sitemap/
