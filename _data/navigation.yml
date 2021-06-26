@@ -3,7 +3,7 @@ main:
   - title: "Cateagories"
     url: /categories/
   - title: "About"
-    url: https://panwoo1.github.io/about/
+    url: /about/
   - title: "tags"
     url: /tags/
   title: "year"
