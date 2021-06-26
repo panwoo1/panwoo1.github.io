@@ -1,6 +1,6 @@
 ---
-title:"Posts by Year"
-permalink: /vear-archive/
+title: "Posts by Year"
+permalink: /year-archive/
 layout: posts
 author_profile: true
 ---
