@@ -95,7 +95,7 @@ analytics:
 # Site Author
 author:
   name             : "Chanwoo Lim"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/images/KakaoTalk_20210303_061043873" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "noob devloper."
   location         : "Seoul, Korea"
   email            : 
