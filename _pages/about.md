@@ -4,6 +4,7 @@ permalink: /about/
 toc: true
 toc_sticky: true
 toc_label: "MYSELF"
+author_profile: true
 ---
 
 ## 학력사항
