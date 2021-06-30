@@ -3,4 +3,6 @@ title: About
 permalink: /about/
 ---
 
-noob developer
+# Who am I?
+
+- noob
