@@ -1,6 +1,8 @@
 ---
-title: About
 permalink: /about/
-toc: true
+title: "About Me"
+excerpt: "About me"
+layout: single
+classes: wide
 author_profile: true
 ---
