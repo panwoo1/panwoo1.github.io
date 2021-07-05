@@ -51,7 +51,7 @@ tags:
 ### pseudo code
 
 <!-- prettier-ignore -->
-'''
+```
 def MoM(A, k):
   if (|A| == 1): return A[0]
   S, L, M, medians = [], [], [], []
@@ -69,4 +69,4 @@ def MoM(A, k):
   if(len(S) > k): return MoM(S, k)
   elif(len(S) + len(M) < k): return MoM(B, k - len(S) - len(M))
   else: return mom
-'''
+```

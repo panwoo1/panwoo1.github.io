@@ -22,7 +22,7 @@ tags:
 ### pseudo code
 
 <!-- prettier-ignore -->
-'''
+```
 def Quick_Select(L, k):
   A, M, B = [], [], []
   p = L[0]
@@ -33,7 +33,7 @@ def Quick_Select(L, k):
   if(len(A) >= k): return Quick_Select(A, k)
   elif(len(A) + len(M) < k): return Quick_Select(B, k - len(A) - len(M))
   else: return p
-'''
+```
 
 ### 수행시간
 
