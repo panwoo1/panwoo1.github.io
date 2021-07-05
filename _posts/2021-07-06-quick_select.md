@@ -21,9 +21,8 @@ tags:
 
 ### pseudo code
 
-'''
-
 <!-- prettier-ignore -->
+'''
 def Quick_Select(L, k):
   A, M, B = [], [], []
   p = L[0]
