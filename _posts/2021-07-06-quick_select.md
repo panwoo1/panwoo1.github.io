@@ -24,7 +24,7 @@ tags:
 ### pseudo code
 
 <!-- prettier-ignore -->
-def Quck_Select(L, k):
+def Quick_Select(L, k):
   A, M, B = [], [], []
   p = L[0]
   for a in L:
@@ -40,15 +40,13 @@ def Quck_Select(L, k):
 
 1. 가장 좋은 경우
 
-
-    - S 또는 L가 A의 반 정도로 계속 줄어드는 경우
-    - T(n) = T(2/n) + n ..... -> O(n)
+   - S 또는 L가 A의 반 정도로 계속 줄어드는 경우
+   - T(n) = T(2/n) + n ..... -> O(n)
 
 2. 가장 나쁜 경우
 
-
-    - S 또는 L에 p를 제외한 모든 수가 몰리는 경우
-    - T(n) = T(n - 1) + n ..... -> O(n^2)
+   - S 또는 L에 p를 제외한 모든 수가 몰리는 경우
+   - T(n) = T(n - 1) + n ..... -> O(n^2)
 
 ### 약점
 
