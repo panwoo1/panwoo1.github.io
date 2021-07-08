@@ -1,8 +1,8 @@
 ---
 title: "Quick Select"
 excerpt_separator: "<!--more-->"
-categproes:
-  - Blog
+categories:
+  - Algorithm
 tags:
   - Python
   - Algorithm
