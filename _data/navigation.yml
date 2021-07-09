@@ -8,7 +8,5 @@ main:
     url: /tags/
   - title: "year"
     url: /year-archive/
-  - title: "모각코"
-    url: /categories/모각코
   # - title: "Sitemap"
   #   url: /sitemap/
