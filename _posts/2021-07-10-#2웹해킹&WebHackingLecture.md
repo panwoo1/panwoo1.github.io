@@ -1,5 +1,5 @@
 ---
-title: "2장 웹 해킹(2.5장까지) & WebHacking Lecture"
+title: "[모각코]2장 웹 해킹(2.5장까지) & WebHacking Lecture"
 excerpt_separator: "<!--more-->"
 categories:
   - 모각코
@@ -226,15 +226,34 @@ tags:
 - HTTP 또는 HTTPS는 URI의 구성 요소 중 Scheme(Protcol)에 해당
 - TCP 혹은 TLS 를 사용해 통신하고 기본 포트로 80(HTTP), 443(HTTPS) 포트를 사용
 
-- HTTP Request - HTTP Request는 서버에 대한 요청을 의미
-  -HTTP Request의 구조 중 가장 첫번째 줄에는 사용자가 서버에 요청 시 수행하고자 하는 동작인 Method, 요청하는 웹 리소스의 경로인 Path, 사용하는 HTTP의 버전을 나타내는 Version으로 구성됨  
-   두 번째 줄부터는 Header 부분 Header는 이름: 값 형태로 이루어짐 Header는 상황에 따라 많은 데이터를 포함할 수 있기 때문에 Header 부분의 끝을 표시하기 위한 CRLF을 한 번 더 출력  
-   마지막으로 사용자의 데이터를 담는 부분인 Body (CRLF = 줄바꿈)
+- **HTTP Request** - HTTP Request는 서버에 대한 요청을 의미
 
-  - 구성요소 1. Method = 서버에 요청 시 수행하고자 하는 동작 - Head = GET 메소드와 동일하지만, Response의 Body 부분은 받지 않고, Header만 받음 - Get = 리소스를 요청 (ex. 게시물/프로필 보기, 이미지 등) - POST = 특정 리소스 생성 및 데이터 추가를 위해 값을 제출할 때 사용 - PUT = 특정 리소스의 내용을 보낸 값으로 설정 - PATCH = 특정 리소스의 내용 중 보낸 값의 key만 변경 - DELETE = 특정 리소스 삭제 - TRACE = 요청받은 값을 Response의 Body로 다시 클라이언트에게 되돌려줌 2. Path = 사용자가 서버에 요청하는 웹 리소스의 경로 3. Version = HTTP의 버전 4. Header = 서버에 추가 정보를 전달하는 데이터 부분  
-     사용자와 서버가 상호작용하기 위한 정보를 담는 부분(ex. 사용자 데이터의 처리 방식 및 형식에 대한 정보, 서버에서 사용자를 식별하기 위한 쿠키 등) - Host = 데이터를 보내는 서버의 주소 - Cookie = 사용자를 식별하기 위한 정보 - User-Agent = 사용자가 사용하는 프로그램의 정보 - Refer = 페이지 이동 시 이전 URI의 정보 - Content-Type = 사용자가 전달하는 데이터의 처리 방식과 형식 5. Body = 사용자가 입력한 데이터가 서버에 전달 시 데이터를 담는 부분
+  - HTTP Request의 구조 중 가장 첫번째 줄에는 사용자가 서버에 요청 시 수행하고자 하는 동작인  
+    Method, 요청하는 웹 리소스의 경로인 Path, 사용하는 HTTP의 버전을 나타내는 Version으로 구성됨  
+    두 번째 줄부터는 Header 부분 Header는 이름: 값 형태로 이루어짐 Header는 상황에 따라 많은 데이터를 포함할 수 있기 때문에  
+    Header 부분의 끝을 표시하기 위한 CRLF을 한 번 더 출력 마지막으로 사용자의 데이터를 담는 부분인 Body (CRLF = 줄바꿈)
 
-- HTTP Response
+  - 구성요소
+    1. Method - 서버에 요청 시 수행하고자 하는 동작
+       - Head - GET 메소드와 동일하지만, Response의 Body 부분은 받지 않고, Header만 받음
+       - Get - 리소스를 요청 (ex. 게시물/프로필 보기, 이미지 등)
+       - POST - 특정 리소스 생성 및 데이터 추가를 위해 값을 제출할 때 사용
+       - PUT - 특정 리소스의 내용을 보낸 값으로 설정
+       - PATCH - 특정 리소스의 내용 중 보낸 값의 key만 변경
+       - DELETE - 특정 리소스 삭제
+       - TRACE - 요청받은 값을 Response의 Body로 다시 클라이언트에게 되돌려줌
+    2. Path - 사용자가 서버에 요청하는 웹 리소스의 경로
+    3. Version - HTTP의 버전
+    4. Header - 서버에 추가 정보를 전달하는 데이터 부분  
+        사용자와 서버가 상호작용하기 위한 정보를 담는 부분(ex. 사용자 데이터의 처리 방식 및 형식에 대한 정보, 서버에서 사용자를 식별하기 위한 쿠키 등)
+       - Host = 데이터를 보내는 서버의 주소
+       - Cookie = 사용자를 식별하기 위한 정보
+       - User-Agent - 사용자가 사용하는 프로그램의 정보
+       - Refer = 페이지 이동 시 이전 URI의 정보
+       - Content-Type = 사용자가 전달하는 데이터의 처리 방식과 형식
+         \*\*5. Body = 사용자가 입력한 데이터가 서버에 전달 시 데이터를 담는 부분
+
+- **HTTP Response**
 
   - HTTP Response는 사용자의 요청에 대한 서버의 응답
   - HTTP Response의 구조 중 가장 첫번째 줄에는 Version과 사용자의 요청에 대한 서버의 상태 응답 코드인 Status code로 구성  
@@ -276,30 +295,30 @@ tags:
 
 ### 웹 서버 어플리케이션
 
-1.  Web Server
+1.  **Web Server**
 
     - 웹 서버는 사용자의 HTTP 요청을 해석하여 처리한 후 응답하여 주는 역할
     - nginx, Apache, Tomcat, IIS 등
 
-2.  Web Application
+2.  **Web Application**
 
     - 웹 어플리케이션은 사용자의 요청을 동적으로 처리할 수 있도록 만들어진 어플리케이션
     - 웹 어플리케이션을 작성할 때는 사용자가 요청한 내용을 동적으로 처리하기 위해 Web Application Language 사용
     - PHP, NodeJS, Python, Java 등
 
-3.  DataBase Management System
+3.  **DataBase Management System**
 
     - DBMS 는 데이터베이스 내의 데이터 조회/수정/삽입을 용이하게 할 수 있도록 도와주는 서버 어플리케이션
     - MYSQL, MS-SQL 등을 DBMS라 하며 해당 어플리케이션들이 관리하는 데이터를 데이터베이스라고 함
 
 ### 웹 해킹
 
-1.  Client-side Attack
+1.  **Client-side Attack**
 
     - 서비스 사용자에 대한 공격
     - 웹 서버가 제공하는 데이터가 공격자에 의해 변조되어 취약점 발생
 
-2.  Server-side Attack
+2.  **Server-side Attack**
     - 서비스를 운용하는 서버에 대한 공격
     - 서버의 어플리케이션 코드 또는 다른 사용자의 정보 유출, 서버 탈취 등
 
@@ -315,7 +334,7 @@ tags:
 
 - 웹 브라우저가 공격으로부터 사용자를 보호하기 위해 만든 정책
 - 서로 다른 오리진의 문서 또는 스크립트 들의 상호 작용을 제한
-- 오리진은 프로토콜(protocol, scheme), 포트(port), 호스트(host)로 구성되며, 모두 일치해야 동일한 오리진
+- 오리진은 **프로토콜(protocol, scheme), 포트(port), 호스트(host)**로 구성되며, 모두 일치해야 동일한 오리진
 
 - ex. https://same-origin-com/ 과 비교
 
@@ -325,3 +344,139 @@ tags:
   | http://same-origin.com/frame.html  | cross origin | scheme이 다름 |
   |   https://cross.same-origin.com/   | cross origin |  host가 다름  |
   |   https://same-origin.com:1234/    | cross origin |  port가 다름  |
+
+### Cross Origin Resource Sharing(CORS)
+
+- 일반적으로는 SOP 영향으로 서로 다른 오리진과 리소스를 공유 불가
+- 개발 또는 운영의 목적으로 다른 오리진들과 리소스를 공유해야 하는 상황
+  - portMessage - 메시지를 주고받기 위한 이벤트 핸들러를 이용해 리소스를 공유
+  - JSONP - 스크립트 태그를 통해 외부 자바스크립트 코드를 호출하면  
+    현재 오리진에서 해당 코드가 실행되는 점을 이용한 방법
+
+### Cross Site Scripting(XSS)
+
+- 서버의 응답에 공격자가 삽입한 악성 스크립트가 포함되어 사용자의 웹 브라우저에서 해당 스크립트가 실행되는 취약점
+- 임의의 악성 스크립트를 실행할 수 있으며 이를 통해 해당 웹 사이트의 사용자 쿠키 또는 세션을 탈취하여 공격 수행(악성 스크립트는 웹 리소스를 말하며, 대표적으로 HTML, JS 등)
+
+  - **공격 조건**
+
+  1. 입력 데이터에 대한 충분한 검증 과정이 없어야함
+     - 입력한 데이터가 충분한 검증 과정이 이루어지지 않아 악성 스크립트각 삽입될 수 있어야 함
+  2. 서버의 응답 데이터가 웹 브라우저 내 페이지에서 출력 시 충분한 검정 과정이 없어야 함
+     - 응답 데이터 출력 시 악성 스크립트가 웹 브라우저의 렌더링 과정에 성공적으로 포함되어야 함
+
+- **XSS with JavaScript**
+
+  - JavaScript는 사용자와의 상호작용 없이 사용자의 권한으로 정보를 조회하거나  
+    변경하는 등의 요청을 주고 응답받는 것 가능하여 이를 통해 XSS 공격, 대표적으로 <script> 태그 사용
+
+- **Stored XSS**
+
+  - 악성 스크립트가 서버 내에 존재하는 데이터베이스 또는 파일 등의 형태로 저장되어 있다가  
+    사용자가 저장된 악성 스크립트를 조회하는 순간 발생하는 형태의 XSS
+  - 불특정 다수에게 공격이 가능하다는 점에서 높은 파급력을 가질 수 있는 가능성도 존재하지만,  
+    악성 스크립트가 실행되는 페이지가 사용자가 일반적으로 접근하기 어려운 서비스일 경우에는 파급력이 높지 않을 수 있음
+
+- **Reflected XSS**
+
+  - 악성 스크립트가 사용자의 요청과 함께 전송되는 형태, 사용자가 요청한 데이터가 서버의 응답에 포함되어 HTML 등의 악성 스크립트가 그대로 출력
+  - Stored XSS와는 다르게 사용자의 요청 데이터에 의해 취약점이 발생하므로, 변조된 데이터가 사용자의 요청으로 전송되는 형태를 유도해야 함
+
+- **Mitigations**
+
+  1.  **Server-side Mitigations**
+
+      - XSS를 유발할 수 있는 태그 삽입을 방지하기 위해 서버에서 검증하는 방법
+      - 사용자의 입력 값에 따라 화이트리스트 필터링(HTML 사용 시 허용해도 안전한 일부 태그, 속성을 제외한 모든 값을 필터링) 필요
+
+  2.  **HTTPOnly Flag**
+
+      - 서버 측에서 응답 헤더에 Set-Cookie 헤더를 전송해 자바스크립트에서 해당 쿠키에 접근 하는 것을 금지
+
+  3.  **Content Security Policy (CSP)**
+
+      - 응답 헤더나 meta 태그를 통해 각각의 지시어를 적용하여 사이트에서 로드하는 리소스들의 출처를 제한
+        ex. Content-Security-Policy: <지시어>;
+
+  4.  **X-XSS-Protection Header**
+
+      - X-XSS-Protection: <값>
+      - 웹 브라우저에 내장된 XSS Filter를 활성화할 것인지를 판단  
+        XSS Filter는 XSS 공격 여부를 판단하여 공격 발생을 사용자에게 알리고 차단
+      - 최신 브라우저에서는 사용하지 않는 추세
+
+### Cross Site Request Forgery(CSRF)
+
+- 웹 브라우저는 기본적으로 SOP에 위반되지 않은 모든 요청에 쿠키를 포함해 전송함
+- 비정상적으로 사용자의 의도와 무관하게 다른 사이트에 HTTP 요청을 보내는 것을 CSRF 공격 이라고 함
+- CSRF 공격을 통해 공격자는 해당 세션 쿠키를 가진 사람만 사용할 수 있는 기능을 요청할 수 있음
+- 공격 조건
+
+  1.  해당 웹 사이트가 쿠키를 이용한 인증 방식을 사용해야 함
+      - 모든 HTTP 전송엔 쿠키가 함께 전송되기 때문에 쿠키에 저장된 세션 아이디도 전송됨
+  2.  공격자가 사전에 알 수 없는 파라미터가 존재해서는 안됨
+
+      - 자동 입력 방지 문자를 넣어야 하는 요청은 공격자가 미리 알 수 없음
+      - 패스워드 변경 기능에서 기존 패스워드를 입력 받는 다면 이 또한 공격자가 알 수 없음
+
+  3.  예제 <img src="/sendmoney?to=dreamhack&amount=1000000">
+
+  4.  **방어법**
+      1. 세션 쿠키 대신 커스텀 헤더를 사용하여 사용자 인증
+         - 사용자 인증만을 위한 헤더 추가
+      2. 공격자가 예측할 수 없는 파라미터 추가 및 검증
+         - Same Origin에서만 접근 가능한 데이터를 삽입
+           - CSRF Token
+         - CAPTCHA
+         - 정상적인 사용자만 알고있는 기존의 값을 검증(ex. 현재 비밀번호)
+
+  - 크로스 사이트에서 출발한 요청에 제한적으로 쿠키를 포함시키게 하는 옵션 'SameSite'
+  - Strict = 모든 크로스 사이트에서 출발한 요청에 해당 쿠키를 삽입 X
+  - Lax = Link, Prerender, Form Get을 제외한 요청에는 쿠키 삽입 X
+  - Normal = 기존과 동일하게 모든 요청에 쿠키 삽입
+
+### Open Redirect
+
+- Redirect는 사용자의 Location을 이동시키기 위해 사용하는 기능 중 하나
+- 주소가 공격자에 의해 변도될 경우 Open Redirect 취약점 발생
+- 사용자가 접속한 도메인 사이트에 대한 신뢰를 무너뜨리는 공격으로 피싱사이트로 접속을 유도하거나,  
+  다른 취약점을 연계하여 사용자를 공격
+- 방어 방법으로 리다이렉트가 발생하는 경로에서 공격자의 입력 값에 의해 리다이렉트 되는 주소가 변경될 경우,  
+  해당 경로와 공격자의 값이 함께 전달되도록 사용자를 유도하여 리다이렉트가 되도록 하는 방법
+
+  - **Mitigation**
+
+    - 허용한 주소에 대해서만 이동하게끔 하는 방법
+    - 사용자의 입력 값으로 리다이렉트 되는 기능을 사용해야 하는 경우 해당 링크에 대한 검증을 배포하거나,
+      외부 링크로 이동하는 것을 사용자가 알 수 있도록 하는 방법
+
+### Click Jacking
+
+- 웹 브라우저 화면에 출력되는 내용에 HTML, CSS, JS 등과 같이 화면 출력에 영향을  
+  미치는 요소들을 이용하여 사용자의 눈을 속여 사용자의 클릭을 유도한는 공격 방법
+- 외부 페이지 리소스를 불러올 수 있는 태그 엘리먼트  
+  ( <frame>, <iframe>, <object>, <embed>, <applet>) 를 사용
+- Mitigation
+
+  1. X-Frame-Options - HTTP 응답 헤더를 통해 DENY와 SAMEORIGIN 두 개의 값으로 설정
+
+     |     값     |                   내용                   |
+     | :--------: | :--------------------------------------: |
+     |    DENY    |    부모 페이지 URL 상관없이 모두 차단    |
+     | SAMEORIGIN | 부모 페이지 URL이 Same Origin이라면 허용 |
+
+  2. frame-ancestors
+     - Content Security Policy(CSP)의 frame-ancestors 지시어를 통해 값을 설정
+     - frame-ancestors 지시어는 CSP를 HTTP 응답 헤더를 통해 설정해야 함
+
+|        값         |                                  내용                                  |
+| :---------------: | :--------------------------------------------------------------------: |
+|      'none'       |                      X-Frame-Options DENY와 동일                       |
+|      'self'       |                   X-Frame-Options SAMEORIGIN과 동일                    |
+| http://, https:// |                       scheme이 같으면 모두 허용                        |
+| \*.xxxx.io, dr 등 | host나 scheme+host가 같으면 모두 허용, 와일드카드(\*)를 사용할 수 있음 |
+
+- X-Frame-Options vs CSP frame-ancestors
+  - X-frame-Options 은 최상위 parent의 URL을, frame-ancestors 은 모든 parent URL 들을 검사해야 한다고 명시
+  - 대부분의 브라우저에서는 호환성과 보안 문제로 모든 parent URL들을 검사하지만  
+    X-Frame-Options 보다는 최신 기술인 frame-ancestors를 사용하는 것을 권장
