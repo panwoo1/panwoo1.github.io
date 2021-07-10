@@ -150,3 +150,65 @@ tags:
 ### 웹이란?
 
 - 해킹 - 본래의 의도와는 다른 행위를 발생시키는 것
+- 웹 - HTTP를 이용하여 정보를 공유하는 통신 서비스
+- 웹 서버(Web Server) - 서비스를 제공하는 대상
+- 웹 클라이언트(Web Client) - 서비스를 받는 사용자
+
+### 웹 기초 지식
+
+- Web Browser - 웹에 접속하기 위해 사용하는 소프트웨어
+- Web Resource - 웹 상에 존재하는 모든 콘텐츠(HTML, CSS, JS, PDF, PNG 등)
+- URI(URL) - Uniform Resource Identifier의 약자로 리소스를 식별하기 위한 식별자
+- HTTP(HyperText Transfer Protocol) - 인터넷 서비스 대상 간 통신 규약, 웹을 이용하기 위한 통신 규약
+- HTTPS(HyperText Transfer Protocol Secure) - 기존 HTTP 데이터를 암호화하여 통신
+- Cookie - 웹 브라우저에 저장하는 데이터
+- Session - 서버에 저장하는 데이터
+- Domain Name - 네트워크상에서 컴퓨터를 식별하는 이름 (ex. www.naver.com은 네이버의 서버 컴퓨터를 식별하는 이름)
+- Server - 인터넷상에서 사용자에게 서비스를 제공하는 컴퓨터
+- Web Server - Web Browser 와 HTTP를 이용하여 통신하는 서버
+- Application - 서버에서 설정한 특정 기능들을 수행하는 소프트웨어
+- DataBase(DB) - 데이터를 저장하기 위해 사용하는 데이터 저장소
+
+### Web Browser
+
+|                        | Chrome |      Edge      |     Safari      |    Firefox    |
+| :--------------------: | :----: | :------------: | :-------------: | :-----------: |
+|         제조사         |  구글  | 마이크로소프트 |      애플       |  모질라 재단  |
+|    JavaScript 엔진     |   V8   |   ChakraCore   | JavaScript Core | Spider Monkey |
+|     HTML/CSS 엔진      | Blink  |   Edge HTML    |     Webkit      |     Gecko     |
+| 사생활 보호/보장(EDNS) |   X    |       X        |        X        |       O       |
+|    패스워드 동기화     |   O    |       O        |        O        |       O       |
+
+### Web Resource
+
+- 웹 리소스를 가리키는 주소는 URL.
+- 대표적인 웹 리소스
+  1. HTML: 웹 문서의 뼈대를 구축하기 위한 마크업 언어
+  2. CSS: HTML이 표시되는 방법을 정의하는 스타일 시트 언어
+  3. JS: Client Side Script를 이용하여 페이지 내에서의 행위들을 설정
+  4. Etc: 문서, 이미지, 동영상, 폰트 등
+
+### URI(URL)
+
+- 리소스를 식별하기 위한 식별자
+- URL은 리소스의 위치를 식별하기 위한 URI의 하위 개념
+
+  <img width="960" alt="c974f9087eddea560f7ff225c5d6e35a0cfdfd1a1df14c284271ff321846e497" src="https://user-images.githubusercontent.com/66258691/125150288-ac1ff500-e179-11eb-9d78-89cd7b507753.png">
+
+  - Scheme - 웹 서버에 접속할 때 어떤 체계를(프로토콜)를 이용할지에 대한 정보
+  - Host - Authority의 일부로써 접속할 웹 서버의 호스트에 대한 정보
+  - Port - Authority의 일부로써 접속할 웹 서버의 포트에 대한 정보
+  - Path - 접속할 웹 서버의 경로에 대한 정보를가지고 있으면 /로 구분
+  - Query - 웹 서버에 전달하는 파라미터이며 URI에서 ? 문자 뒤에 붙음
+  - Fragment - 메인 리소스 내에 존재하는 서브 리소스에 접근할 때 이를 식별하기 위한 정보,  
+    URI에서 # 문자 뒤에 붙음
+    ```
+    ex) http://example.com:80/path?search=1#fragment
+    Scheme = http://
+    Host = example.com
+    Path = /path
+    Query = ?search=1
+    Fragment = #fragment
+    ```
+
+### Encoding
