@@ -216,3 +216,112 @@ tags:
 - Encoding - 문자 또는 기호 등의 정보, 형태를 표준화, 보안 등의 목적으로 다른 형태나 형식으로 변환하는 처리  
    혹은 그 처리 방식
 - Decoding - 변환된 형태를 원래 형태로 변경하는 것
+
+- 웹에서 사용하는 대표적인 인코딩
+  1. URL
+  2. HTML
+
+### HTTP
+
+- HTTP 또는 HTTPS는 URI의 구성 요소 중 Scheme(Protcol)에 해당
+- TCP 혹은 TLS 를 사용해 통신하고 기본 포트로 80(HTTP), 443(HTTPS) 포트를 사용
+
+- HTTP Request - HTTP Request는 서버에 대한 요청을 의미
+  -HTTP Request의 구조 중 가장 첫번째 줄에는 사용자가 서버에 요청 시 수행하고자 하는 동작인 Method, 요청하는 웹 리소스의 경로인 Path, 사용하는 HTTP의 버전을 나타내는 Version으로 구성됨  
+   두 번째 줄부터는 Header 부분 Header는 이름: 값 형태로 이루어짐 Header는 상황에 따라 많은 데이터를 포함할 수 있기 때문에 Header 부분의 끝을 표시하기 위한 CRLF을 한 번 더 출력  
+   마지막으로 사용자의 데이터를 담는 부분인 Body (CRLF = 줄바꿈)
+
+  - 구성요소 1. Method = 서버에 요청 시 수행하고자 하는 동작 - Head = GET 메소드와 동일하지만, Response의 Body 부분은 받지 않고, Header만 받음 - Get = 리소스를 요청 (ex. 게시물/프로필 보기, 이미지 등) - POST = 특정 리소스 생성 및 데이터 추가를 위해 값을 제출할 때 사용 - PUT = 특정 리소스의 내용을 보낸 값으로 설정 - PATCH = 특정 리소스의 내용 중 보낸 값의 key만 변경 - DELETE = 특정 리소스 삭제 - TRACE = 요청받은 값을 Response의 Body로 다시 클라이언트에게 되돌려줌 2. Path = 사용자가 서버에 요청하는 웹 리소스의 경로 3. Version = HTTP의 버전 4. Header = 서버에 추가 정보를 전달하는 데이터 부분  
+     사용자와 서버가 상호작용하기 위한 정보를 담는 부분(ex. 사용자 데이터의 처리 방식 및 형식에 대한 정보, 서버에서 사용자를 식별하기 위한 쿠키 등) - Host = 데이터를 보내는 서버의 주소 - Cookie = 사용자를 식별하기 위한 정보 - User-Agent = 사용자가 사용하는 프로그램의 정보 - Refer = 페이지 이동 시 이전 URI의 정보 - Content-Type = 사용자가 전달하는 데이터의 처리 방식과 형식 5. Body = 사용자가 입력한 데이터가 서버에 전달 시 데이터를 담는 부분
+
+- HTTP Response
+
+  - HTTP Response는 사용자의 요청에 대한 서버의 응답
+  - HTTP Response의 구조 중 가장 첫번째 줄에는 Version과 사용자의 요청에 대한 서버의 상태 응답 코드인 Status code로 구성  
+    두 번째 줄부터는 Header 부분 Header 부분의 각 줄은 이름: 값의 형태로 이루어짐 Header의 끝을 표시하기 위해 CRLF를 한 번 더 출력한 후, 서버의 응답 데이터 부분인 Body로 구성
+
+  - 구성요소
+    1. Version = HTTP의 버전
+    2. Status code = 사용자의 요청에 대한 서버의 처리 결과
+       - 200번 영역 = 사용자의 요청에 대한 서버의 처리가 성공하였음을 나타냄
+       - 300번 영역 = 사용자가 요청한 리소스가 다른 경로로 변경된 경우를 나타내는 영역
+       - 400번 영역 = 사용자가 서버에 요청하는 구조 또는 데이터가 잘못되었음을 나타내는 영역
+       - 500번 영역 = 서버의 에러와 관련된 영역
+    3. Headr = 사용자와 상호작용하기 위한 데이터를 담는 부분
+       - Content-Type = 서버의 응답 데이터를 웹 브라우저에서 처리할 방식과 형식
+       - Content-Length = 서버가 사용자에게 응답해주는 데이터의 길이
+       - Server = 서버가 사용하는 소프트웨어의 정보
+       - Allow = 허용되는 Method 목록을 사용자에게 알려줄 때 사용
+       - Location = 300번 영역의 응답 코드 사용 시 변경된 웹 리소스의 주소
+       - Set-Cookie = 사용자에게 쿠키를 발급할 때 사용
+    4. Body = 서버가 사용자에게 응답하는 데이터를 담는 부분
+
+### Cookie
+
+- 웹 브라우저는 HTTP Response의 Set-Cookie Header나 JavaScript document.cookie 를 통해 데이터를 쿠키에 저장
+- 쿠키는 인증 상태를 포함할 수 있음
+- 쿠키는 사용자의 브라우저에 저장되며, 인증상태를 쿠키에 저장하게 되면  
+  사용자가 임의 사용자로 인증된 것 처럼 요청을 조작할 수 있음
+
+### Session
+
+- 앞서 쿠키에서 확인된 조작된 요청으로 인해 서버에 데이터를 저장하기 위해 Session을 사용
+- 데이터를 서버에 저장하고 해당 데이터에 접근할 수 있는 유추할 수 없는 *랜덤한 문자열 키*를 만들어 응답, 이를 **Session ID**라고 함
+
+### Domain Name / Host Name
+
+- URI 구성 요소 중 Host는 웹 브라우저가 어디에 연결할지 정함
+- IP Adress는 네트워크 상에서 통신이 이루어질 때 장치를 식별하기 위해 사용되는 주소  
+  하지만, 이는 사람이 외우기 어려우므로 사람이 외우기 쉽고, 의미를 부여하기 위해 Domain Name을 사용
+
+### 웹 서버 어플리케이션
+
+1.  Web Server
+
+    - 웹 서버는 사용자의 HTTP 요청을 해석하여 처리한 후 응답하여 주는 역할
+    - nginx, Apache, Tomcat, IIS 등
+
+2.  Web Application
+
+    - 웹 어플리케이션은 사용자의 요청을 동적으로 처리할 수 있도록 만들어진 어플리케이션
+    - 웹 어플리케이션을 작성할 때는 사용자가 요청한 내용을 동적으로 처리하기 위해 Web Application Language 사용
+    - PHP, NodeJS, Python, Java 등
+
+3.  DataBase Management System
+
+    - DBMS 는 데이터베이스 내의 데이터 조회/수정/삽입을 용이하게 할 수 있도록 도와주는 서버 어플리케이션
+    - MYSQL, MS-SQL 등을 DBMS라 하며 해당 어플리케이션들이 관리하는 데이터를 데이터베이스라고 함
+
+### 웹 해킹
+
+1.  Client-side Attack
+
+    - 서비스 사용자에 대한 공격
+    - 웹 서버가 제공하는 데이터가 공격자에 의해 변조되어 취약점 발생
+
+2.  Server-side Attack
+    - 서비스를 운용하는 서버에 대한 공격
+    - 서버의 어플리케이션 코드 또는 다른 사용자의 정보 유출, 서버 탈취 등
+
+---
+
+## Client-side Basic
+
+- 공격자는 쿠키나 세션에 저장된 세션 아이디를 탈취해 사용자 권한을 얻거나,  
+  사용자의 브라우저에서 자바스크립트를 실행하는 등의 특별한 행위를  
+  수행해 사용자가 요청을 보낸 것처럼 하는 것이 클라이언트 사이드 취약점의 주 목적
+
+### Same Origin Policy(SOP)
+
+- 웹 브라우저가 공격으로부터 사용자를 보호하기 위해 만든 정책
+- 서로 다른 오리진의 문서 또는 스크립트 들의 상호 작용을 제한
+- 오리진은 프로토콜(protocol, scheme), 포트(port), 호스트(host)로 구성되며, 모두 일치해야 동일한 오리진
+
+- ex. https://same-origin-com/ 과 비교
+
+  |                URL                 |     결과     |     이유      |
+  | :--------------------------------: | :----------: | :-----------: |
+  | https://same-origin.com/frame.html | same origin  |  path만 다름  |
+  | http://same-origin.com/frame.html  | cross origin | scheme이 다름 |
+  |   https://cross.same-origin.com/   | cross origin |  host가 다름  |
+  |   https://same-origin.com:1234/    | cross origin |  port가 다름  |
