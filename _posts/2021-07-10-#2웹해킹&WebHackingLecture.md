@@ -234,6 +234,7 @@ tags:
     Header 부분의 끝을 표시하기 위한 CRLF을 한 번 더 출력 마지막으로 사용자의 데이터를 담는 부분인 Body (CRLF = 줄바꿈)
 
   - 구성요소
+
     1. Method - 서버에 요청 시 수행하고자 하는 동작
        - Head - GET 메소드와 동일하지만, Response의 Body 부분은 받지 않고, Header만 받음
        - Get - 리소스를 요청 (ex. 게시물/프로필 보기, 이미지 등)
