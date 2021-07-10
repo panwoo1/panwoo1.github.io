@@ -456,7 +456,7 @@ tags:
 - 웹 브라우저 화면에 출력되는 내용에 HTML, CSS, JS 등과 같이 화면 출력에 영향을  
   미치는 요소들을 이용하여 사용자의 눈을 속여 사용자의 클릭을 유도한는 공격 방법
 - 외부 페이지 리소스를 불러올 수 있는 태그 엘리먼트  
-  ( <frame>, <iframe>, <object>, <embed>, <applet>) 를 사용
+  ( `<frame>, <iframe>, <object>, <embed>, <applet>`) 를 사용
 - Mitigation
 
   1. X-Frame-Options - HTTP 응답 헤더를 통해 DENY와 SAMEORIGIN 두 개의 값으로 설정
