@@ -16,7 +16,7 @@ minimal_mistakes_skin: "air" # "air", "aqua", "contrast", "dark", "dirt", "neon"
 
 # Site Settings
 locale: "Seoul, Korea"
-title: "Chanwoo's blog"
+title: "Dev & Hack"
 title_separator: "-"
 subtitle: # site tagline that appears below site title in masthead
 name: "Chanwoo Lim"
