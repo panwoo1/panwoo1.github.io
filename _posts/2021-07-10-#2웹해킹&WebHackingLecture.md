@@ -478,6 +478,11 @@ tags:
 | \*.xxxx.io, dr 등 | host나 scheme+host가 같으면 모두 허용, 와일드카드(\*)를 사용할 수 있음 |
 
 - X-Frame-Options vs CSP frame-ancestors
+
   - X-frame-Options 은 최상위 parent의 URL을, frame-ancestors 은 모든 parent URL 들을 검사해야 한다고 명시
   - 대부분의 브라우저에서는 호환성과 보안 문제로 모든 parent URL들을 검사하지만  
     X-Frame-Options 보다는 최신 기술인 frame-ancestors를 사용하는 것을 권장
+
+- 참고자료
+  - 해킹 맛보기
+  - dreamhack WebHacking online lecture

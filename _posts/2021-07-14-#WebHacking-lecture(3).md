@@ -458,3 +458,6 @@ tags:
   4. **CSS Injection**
      - sytle태그 또는 style 속성에 대해서 변조 가능 시 사용할 수 있는 방법 중 하나
      - 다른 태그의 속성 값을 참/거짓의 방식을 통해 알아내거나, HTTP 트래픽을 생성시킬 수 있음
+
+- 참고자료
+  - dreamhack WebHacking online lecture
