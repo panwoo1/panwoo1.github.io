@@ -1,6 +1,8 @@
 ---
 title: "Medians of Median"
 excerpt_separator: "<!--more-->"
+toc: true
+toc_sticky: true
 categories:
   - Algorithm
 tags:

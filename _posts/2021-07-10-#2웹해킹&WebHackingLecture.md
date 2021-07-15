@@ -1,6 +1,8 @@
 ---
 title: "[모각코]2장 웹 해킹(2.5장까지) & WebHacking Lecture"
 excerpt_separator: "<!--more-->"
+toc: true
+toc_sticky: true
 categories:
   - 모각코
 tags:

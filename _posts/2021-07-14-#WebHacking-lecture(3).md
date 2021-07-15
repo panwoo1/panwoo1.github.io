@@ -1,6 +1,8 @@
 ---
 title: "[모각코]WebHacking(3강~4강)"
 excerpt_separator: "<!--more-->"
+toc: true
+toc_sticky: true
 categories:
   - 모각코
 tags:

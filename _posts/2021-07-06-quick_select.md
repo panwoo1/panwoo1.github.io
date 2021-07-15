@@ -1,6 +1,8 @@
 ---
 title: "Quick Select"
 excerpt_separator: "<!--more-->"
+toc: true
+toc_sticky: true
 categories:
   - Algorithm
 tags:
