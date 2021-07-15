@@ -87,7 +87,7 @@ tags:
 
   - 템플릿 변환 도중 사용자의 입력 데이터가 템플릿으로 사용돼 발생하는 취약점
   - Template Engine이 실행하는 문법을 사용할 수 있기 때문에 발생하게 됨
-    ![image](https://user-images.githubusercontent.com/66258691/125623297-f2031cb2-4dad-42c6-b0b7-a5b561967dcd.png)
+    ![template](https://user-images.githubusercontent.com/66258691/125728293-4782a185-de50-4a9e-887d-cd0027e1246d.png)
   - 각 언어별 많이 사용되는 Template Engine
 
     |  Language  |      Template Engine      |
