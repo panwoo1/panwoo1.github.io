@@ -309,6 +309,7 @@ tags:
   - 파일 시스템, 네트워크, 시스템 장악 가능
 
 - **DBMS 주의사항**
+
   - 권한 문제
     - DBMS 어플리케이션 작동 권한
     - DBMS 계정 권한
@@ -316,3 +317,6 @@ tags:
     - Case sensitive
     - space로 끝나는 문자열 비교
   - Multiple statement
+
+- 참고자료
+  - dreamhack WebHacking online lecture
