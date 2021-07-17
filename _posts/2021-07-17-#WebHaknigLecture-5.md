@@ -75,7 +75,7 @@ tags:
 - 사용자가 자신의 의지와는 무관하게 해커가 원하는 주소를 요청시키는 공격 기법
 - 예시
 
-  ![회원정보 (2)](https://user-images.githubusercontent.com/66258691/126022751-025f1f7e-93c1-425a-921f-fbdfc71c0b5a.jpg)
+  ![회원정보 (2)](https://user-images.githubusercontent.com/66258691/126022751-025f1f7e-93c1-425a-921f-fbdfc71c0b5a.jpg) {: width="50%" height=50%"}
 
   - 관리자가 페이지에서 버튼을 통해 회원정보수정을 하게되면 처리를 위해 `POST` 혹은 `GET` 메소드로 데이터를 전송
     `http://example.com/admin/member_modify_ok.php?no=198&pass=1234&passre=1234&grade=1grade`
