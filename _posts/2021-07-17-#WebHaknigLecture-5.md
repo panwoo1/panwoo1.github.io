@@ -68,7 +68,7 @@ tags:
 
   - xss를 응용한 공격 방식들
 
-  ![xss 응용 공격](https://user-images.githubusercontent.com/66258691/126022559-eca8ac1b-588d-4afa-afe8-8fcd9027597f.jpg)
+  ![xss 응용 공격](https://user-images.githubusercontent.com/66258691/126022559-eca8ac1b-588d-4afa-afe8-8fcd9027597f.jpg){: width="50%" height=50%"}
 
 ### 사이트 간 요청 위조 공격(CSRF)
 
