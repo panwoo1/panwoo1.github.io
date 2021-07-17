@@ -167,6 +167,7 @@ msg 파라미터를 출력하는 xss.php 예제
 
     - 사용자가 임의적으로 에러를 발생시켜 정보를 획득하는 공격 기법
     - DBMS의 환경에 따라 사용 가능 여부 등이 달라질 수도 있음
+    - DBMS에서 쿼리가 실행되기 전에 검증 가능한 에러가 아닌, Runtime 중에 발생하는 에러 필요
 
   - **Blind**
 
@@ -223,14 +224,17 @@ msg 파라미터를 출력하는 xss.php 예제
           ```
 
           - MySQL
-            - sleep 함수
-            - benchmark 함수 - expr 식을 count 수만큼 실행하며 시간지연이 발생
+            - sleep 함수 `SLEEP(duration)`
+            - benchmark 함수 - expr 식을 count 수만큼 실행하며 시간지연이 발생 `BENCHMARK(count, expr)`
             - heavy query
+              `information_schema.tables` 테이블은 MySQL 에서 기본적으로 제공하는 시스템 테이블이며  
+              기본적으로 많은 수의 데이터가 포함되어 있는 테이블이다
+              이러한 데이터가 포함된 테이블을 연산 과정에 포함시켜 시간 지연
           - MSSQL
-            - waitfor
+            - waitfor `waitfor delay 'time_to_pass';`
             - heavy query
           - SQLite
-            - heavy query
+            - heavy query `LIKE('ABCDEFG', UPPER(HEX(RANDOMBLOB([SLEEPTIME]00000000/2))))`
 
       - _Error Based Blind_
 
