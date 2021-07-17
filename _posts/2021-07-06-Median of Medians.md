@@ -53,7 +53,7 @@ tags:
 ### pseudo code
 
 <!-- prettier-ignore -->
-```
+```python
 def MoM(A, k):
   if (|A| == 1): return A[0]
   S, L, M, medians = [], [], [], []

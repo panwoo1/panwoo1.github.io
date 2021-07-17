@@ -20,7 +20,7 @@ tags:
 
    - n 개의 수 중에서 최대 값 구하기
 
-```
+```python
 def find_max1(A):
     if(len(A) == 1):
         return A[0]
@@ -38,7 +38,7 @@ def find_max2(A):
 
 - a^n 계산하기
 
-```
+```python
 def power1(a, n):  # 선형 재귀 호출로 작성하기
    if(n == 1):
        return a
@@ -99,7 +99,7 @@ def pow(x, y):
 
    - O(log n) 시간에 가능
 
-```
+```python
 def fibonacci1(n):
     if(n <= 1):
         return n
