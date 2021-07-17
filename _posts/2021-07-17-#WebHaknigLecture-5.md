@@ -402,4 +402,5 @@ msg 파라미터를 출력하는 xss.php 예제
   - Multiple statement
 
 - 참고자료
+  - 해킹 맛보기
   - dreamhack WebHacking online lecture
