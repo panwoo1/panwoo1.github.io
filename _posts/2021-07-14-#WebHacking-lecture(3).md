@@ -201,7 +201,7 @@ tags:
 
     - python 취약점 예시 코드
 
-    ```
+    ```python
     import pickle
     import os
 
@@ -462,4 +462,4 @@ https://example.dreamhack.io
      - 다른 태그의 속성 값을 참/거짓의 방식을 통해 알아내거나, HTTP 트래픽을 생성시킬 수 있음
 
 - 참고자료
-  - dreamhack WebHacking online lecture
+  - dreamhack WebHacking online lecture <https://dreamhack.io/lecture>

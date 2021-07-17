@@ -487,4 +487,4 @@ tags:
 
 - 참고자료
   - 해킹 맛보기
-  - dreamhack WebHacking online lecture
+  - dreamhack WebHacking online lecture <https://dreamhack.io/lecture>
