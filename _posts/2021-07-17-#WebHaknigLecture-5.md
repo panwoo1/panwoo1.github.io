@@ -152,11 +152,16 @@ msg 파라미터를 출력하는 xss.php 예제
     - 서브 쿼리에서는 `SELECT` 구문만 사용 가능
 
     - 사용 예시
+
       - COLUMNS Clause
         컬럼 절에서 사용시 단일 행, 단일 컬럼의 결과가 반환되도록 해야함
+
       - FROM Clause
         FROM 절에서 사용되는 서브 쿼리 _Inline View_
         Inline View 에서는 다중 행, 다중 컬럼의 결과 사용 가능
+
+      - WHERE Clause
+        WHERE 절에서 사용 시 조건 검색을 위해 다중 행의 결과 사용 가능
 
   - **Error Based**
 
