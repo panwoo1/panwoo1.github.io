@@ -62,7 +62,7 @@ WriteResult({ "nInserted" : 1 })
 - **Evaluation**
 
   - **$expr** - 쿼리 언어 내에서 집계 식 사용
-  - **$json** Schema - 주어진 JSON 스키마에 대해 문서를 검증
+  - **$json Schema** - 주어진 JSON 스키마에 대해 문서를 검증
   - **$mod** - 필드값에 대해 mod 연상 수행, 지정된 결과를 가진 문서 선택
   - **$regex** - 지정된 정규식과 일치하는 문서 선택
   - **$text** - 지정된 텍스트 검색
