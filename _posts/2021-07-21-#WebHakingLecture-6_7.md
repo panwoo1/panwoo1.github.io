@@ -40,7 +40,7 @@ WriteResult({ "nInserted" : 1 })
 - **Comparison**
 
   - **$eq** (equal)
-  - $\*\* (greater than)
+  - **$gt** (greater than)
   - **$gte** (greater than equal)
   - **$in** (in)
   - **$lt** (less than)
