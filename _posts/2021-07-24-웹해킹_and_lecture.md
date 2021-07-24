@@ -384,3 +384,8 @@ Python 및 PHP 등 언어의 내장 라이브러리 함수들은 파일명에 NU
 
 만일 공격자가 `config`파일을 업로드 취약점을 통해 삭제하게 된다면 셋업 페이지를 통해  
 각종 설정을 변경하거나 웹 응용에 따라서 관리자 권한을 획들할 수 있음
+
+- 참고자료
+  - 해킹 맛보기
+  - dreamhack WebHacking online lecture
+    <https://dreamhack.io/lecture>
