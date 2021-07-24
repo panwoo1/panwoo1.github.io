@@ -1,5 +1,5 @@
 ---
-title: "WebHacking(6강~7강)"
+title: "[모각코]WebHacking(6강~7강)"
 excerpt_separator: "<!--more-->"
 toc: true
 toc_sticky: true
