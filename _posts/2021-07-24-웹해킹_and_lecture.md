@@ -74,7 +74,7 @@ SELECT id FROM member WHERE id='admin' and password='' or '1'='1'
 
 다음과 같은 쿼리를 삽입할 경우 모든 Row가 리턴되며 admin 아이디로 로그인 됨
 
-![mysql 삽입 cheat sheet (2)](https://user-images.githubusercontent.com/66258691/126854980-f778c9c7-7954-48fb-a09a-c17d097a4a4b.jpg)
+![mysql 삽입 cheat sheet (2)](https://user-images.githubusercontent.com/66258691/126854980-f778c9c7-7954-48fb-a09a-c17d097a4a4b.jpg){: width="50%" height=50%"}
 
 - **Blind SQL**
 
