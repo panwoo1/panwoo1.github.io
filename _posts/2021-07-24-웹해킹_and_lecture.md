@@ -261,7 +261,7 @@ Linux와 다르게 경로에서 드라이브 지정 가능, 대부분의 중요�
 | :----------------------------------------------------------------------------: | :------------------------------------------------------------------------------------: |
 |                          `C:\Windows\System32\config`                          |                       시스템 단위 레지스트리 하이브 파일이 저장                        |
 |                                   `C:\Boot`                                    |                                 부팅 관련 파일을 저장                                  |
-|                           `%UserProfile%\Ntuser.dat                            |            %UserProfile% 프로필 디렉터리를 가진 사용자의 레지스트리가 저장             |
+|                          `%UserProfile%\Ntuser.dat `                           |            %UserProfile% 프로필 디렉터리를 가진 사용자의 레지스트리가 저장             |
 | `%UserProfile%\Local Settings\Application Data\Microsoft\Windows\UsrClass.dat` | %UserProfile% 프로필 디렉터리를 가진 사용자의 확장자 연결 정보 및 COM 클래스 등이 저장 |
 |                            `C:\Windows\drivers\etc`                            |                 hosts, services 와 같은 네트워크 관련 설정 파일을 저장                 |
 |        `C:\Program Files\Apache Software Foundation\Apache<버전>\conf`         |                          Apache Web Server의 설정 정보를 저장                          |
