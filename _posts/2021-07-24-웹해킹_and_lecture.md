@@ -118,9 +118,9 @@ while(1)
 
 2. 자동화 툴
 
-- pangolin
-- sqlmap
-- Havji
+   - pangolin
+   - sqlmap
+   - Havji
 
 ### 방어 기법
 
