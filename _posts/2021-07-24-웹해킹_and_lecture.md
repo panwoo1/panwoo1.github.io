@@ -370,11 +370,12 @@ Python 및 PHP 등 언어의 내장 라이브러리 함수들은 파일명에 NU
    치환하거나 제거하는 방식으로 이루어지면, 공격자는 또다른 치환되는 문자열을 넣는 방식으로 우회할 수 있음
 
   - `.php`를 제거 여과 예시
-    | 원본 | 치환 과정 | 결과 |
-    | :---: | :---: | :---: |
-    | file.jpg | file.jpg(유지) | file.jpg |
-    | webshell.php | webshell ~~.php~~ | webshell |
-    | webshell.ph.phpp | webshell.ph ~~.php~~ p| webshell.php |
+
+    |       원본       |       치환 과정        |     결과     |
+    | :--------------: | :--------------------: | :----------: |
+    |     file.jpg     |     file.jpg(유지)     |   file.jpg   |
+    |   webshell.php   |   webshell ~~.php~~    |   webshell   |
+    | webshell.ph.phpp | webshell.ph ~~.php~~ p | webshell.php |
 
 ### 응용
 
