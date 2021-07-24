@@ -95,7 +95,7 @@ select substr(lpad(bin(ord(substr("ABC",1,1))), 8, 0),8 ,1);
 
 하지만 이러한 과정은 매우 비효율적이므로 간단한 코딩을 통해 빠르게 데이터 추출 가능
 
-1. 코드 자동화
+- 코드 자동화
 
 ```js
 j = 1;
@@ -116,11 +116,11 @@ while(1)
 }
 ```
 
-2. 자동화 툴
+- 자동화 툴
 
-   - pangolin
-   - sqlmap
-   - Havji
+  - pangolin
+  - sqlmap
+  - Havji
 
 ### 방어 기법
 
