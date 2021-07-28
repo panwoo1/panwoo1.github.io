@@ -352,8 +352,6 @@ Python 및 PHP 등 언어의 내장 라이브러리 함수들은 파일명에 NU
 Static Analysis은 디스어셈블을 거쳐 나온 어셈블리 코드를 분석하여  
 소프트웨어의 동작 구조를 알아내는 과정
 
-####
-
 - 참고자료
 
   - dreamhack WebHacking online lecture
