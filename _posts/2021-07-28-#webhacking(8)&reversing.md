@@ -102,6 +102,14 @@ Linux 디렉터리
 
   - `/proc/<PID>/` 대신 `proc/self/` 를 사용하면 현재 프로세스를 접근할 수 있음
 
+  파일 업로드 시 파일 존재 여부를 확인한다면 아래 파일은 사용할 수 없음
+
+  `/proc/<PID>/coredump_filter`
+  `/proc/<PID>/mem`
+  `/proc/<PID>/comm`
+  `/proc/<PID>/sched`
+  `/proc/<PID>/oom_adj, /proc/<PID>/oom_score_adj`
+
 - **설정 파일**
 
   - 웹 문서 설정, 쉘 명령어, SSH 공개키 지정 등
