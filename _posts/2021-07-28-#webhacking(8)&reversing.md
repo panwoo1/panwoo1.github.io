@@ -10,6 +10,8 @@ tags:
   - Hacking
 ---
 
+## 07-28 수요일
+
 ## Sever-side Advanced - File Vulnerability
 
 ### 리눅스 파일 시스템

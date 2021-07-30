@@ -10,6 +10,8 @@ tags:
   - Hacking
 ---
 
+## 07-21 수요일
+
 ## NoSQL
 
 - **Not Only SQL** 로 많이 사용되며 데이터를 다루기 위해 꼭 SQL을 사용하지 않아도  
