@@ -325,7 +325,7 @@ DOS 운영체제에서는 파일명 최대 8글자, 확장자 최대 3글자만�
 소스 코드가 없는 상태에서 컴파일된 대상 소프트웨어의 구조를 여러가지 방법으로 분석하고,  
 메모리 덤프를 비롯한 바이너리 분석 결과를 토대로 동작 원리와 내부 구조를 파악
 
-![software 리버싱 사진](https://user-images.githubusercontent.com/66258691/127319869-ca281722-438a-4657-b0ac-01fc2a1b0d8c.jpg){: width="70%" height=70%"}
+![software 리버싱 사진](https://user-images.githubusercontent.com/66258691/127319869-ca281722-438a-4657-b0ac-01fc2a1b0d8c.jpg){: width="70%" height="70%"}
 
 ### 리버싱이 필요한 경우
 
