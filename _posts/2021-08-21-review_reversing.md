@@ -123,3 +123,5 @@ rsp = rbp + C8
 해제
 리턴
 ```
+
+![리버싱과정](https://user-images.githubusercontent.com/66258691/130315299-60c78b0b-8efc-4056-b8dd-f1eb6c31b375.png){: width="100%" height="100%"}{: .center}
