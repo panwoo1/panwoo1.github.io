@@ -35,24 +35,24 @@ SQL DML은 데이터베이스에서 데이터를 조회하거나, 추가/삭제/
 
   `LIMIT` 절은 쿼리의 결과로 출력될 row의 개수를 또는 Offset을 지정
 
-```
+```SQL
 연습
 
-#table_name로 부터 모든 컬럼 조회
+--table_name로 부터 모든 컬럼 조회
 SELECT * FROM table_name
 
-#이름이 '임찬우'인 사람 검색
+--이름이 '임찬우'인 사람 검색
 SELECT * FROM table_name WHERE name='임찬우'
 
-#점수 정렬
+--점수 정렬
 SELECT * FROM Scores
 WHERE Scores >= 70
 ORDERED BY Score
 
-#점수 정렬 + 갯수
+--점수 정렬 + 갯수
 SELECT * From Scores
 WHERE Scores >= 70
-ORDERED By Score LIMIT 0, 10    #10개의 컬럼
+ORDERED By Score LIMIT 0, 10    --10개의 컬럼
 ```
 
 - **INSERT**
@@ -65,7 +65,7 @@ ORDERED By Score LIMIT 0, 10    #10개의 컬럼
 
   `,`를 통해 여러 데이터를 한번에 추가할 수 있음
 
-```
+```SQL
 INSERT INTO table_name VALUES(value1, value2, ...)
 INSERT INTO table_name VALUES(value1, value2,...), (1, 2, ...,)
 ```
@@ -78,7 +78,7 @@ INSERT INTO table_name VALUES(value1, value2,...), (1, 2, ...,)
   `SET` 절에서는 수정할 컬럼과 수정될 데이터를 정의
   `WHERE` 절을 통해 수정할 row 지정
 
-  ```
+  ```SQL
   UPDATE table_name SET value=modify_value
   ```
 
@@ -89,9 +89,9 @@ INSERT INTO table_name VALUES(value1, value2,...), (1, 2, ...,)
   `DELETE FROM` 문자열을 시작으로 삭제할 데이터가 존재하는 테이블 정의
   `WHERE` 절을 통해 삭제할 데이터의 row 지정
 
-  ```
-  DELETE FROM table_name    #테이블 전체 삭제
-  DELETE FROM taqlbe_name WHERE id=1111     #테이블 데이터 일부 삭제
+  ```SQL
+  DELETE FROM table_name    --테이블 전체 삭제
+  DELETE FROM taqlbe_name WHERE id=1111     --테이블 데이터 일부 삭제
   ```
 
 ### SQL Injection 공격 기법
@@ -102,12 +102,14 @@ INSERT INTO table_name VALUES(value1, value2,...), (1, 2, ...,)
 
 ```SQL
 --and연산 username이 "admin"이며 userpw가 "admin"인 경우에만 결과 반환
+
 SELECT uid
 FROM UserTable
 WHERE username="admin" and userpw="admin";
 
 
 --or 연산 모든 데이터에 접근 가능
+
 SELECT uid
 FROM UserTable
 WHERE username="admin" or 1;
