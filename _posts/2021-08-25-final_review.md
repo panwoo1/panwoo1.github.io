@@ -35,25 +35,25 @@ SQL DML은 데이터베이스에서 데이터를 조회하거나, 추가/삭제/
 
   `LIMIT` 절은 쿼리의 결과로 출력될 row의 개수를 또는 Offset을 지정
 
-```SQL
-연습
+  ```SQL
+  연습
 
---table_name로 부터 모든 컬럼 조회
-SELECT * FROM table_name
+  --table_name로 부터 모든 컬럼 조회
+  SELECT * FROM table_name
 
---이름이 '임찬우'인 사람 검색
-SELECT * FROM table_name WHERE name='임찬우'
+  --이름이 '임찬우'인 사람 검색
+  SELECT * FROM table_name WHERE name='임찬우'
 
---점수 정렬
-SELECT * FROM Scores
-WHERE Scores >= 70
-ORDERED BY Score
+  --점수 정렬
+  SELECT * FROM Scores
+  WHERE Scores >= 70
+  ORDERED BY Score
 
---점수 정렬 + 갯수
-SELECT * From Scores
-WHERE Scores >= 70
-ORDERED By Score LIMIT 0, 10    --10개의 컬럼
-```
+  --점수 정렬 + 갯수
+  SELECT * From Scores
+  WHERE Scores >= 70
+  ORDERED By Score LIMIT 0, 10    --10개의 컬럼
+  ```
 
 - **INSERT**
 
@@ -65,10 +65,10 @@ ORDERED By Score LIMIT 0, 10    --10개의 컬럼
 
   `,`를 통해 여러 데이터를 한번에 추가할 수 있음
 
-```SQL
-INSERT INTO table_name VALUES(value1, value2, ...)
-INSERT INTO table_name VALUES(value1, value2,...), (1, 2, ...,)
-```
+  ```SQL
+  INSERT INTO table_name VALUES(value1, value2, ...)
+  INSERT INTO table_name VALUES(value1, value2,...), (1, 2, ...,)
+  ```
 
 - **UPDATE**
 
@@ -98,22 +98,22 @@ INSERT INTO table_name VALUES(value1, value2,...), (1, 2, ...,)
 
 - **Logic**
 
-논리 연산을 이용한 공격 방법, 대표적으로 and연산 or 연산
+  논리 연산을 이용한 공격 방법, 대표적으로 and연산 or 연산
 
-```SQL
---and연산 username이 "admin"이며 userpw가 "admin"인 경우에만 결과 반환
+  ```SQL
+  --and연산 username이 "admin"이며 userpw가 "admin"인 경우에만 결과 반환
 
-SELECT uid
-FROM UserTable
-WHERE username="admin" and userpw="admin";
+  SELECT uid
+  FROM UserTable
+  WHERE username="admin" and userpw="admin";
 
 
---or 연산 모든 데이터에 접근 가능
+  --or 연산 모든 데이터에 접근 가능
 
-SELECT uid
-FROM UserTable
-WHERE username="admin" or 1;
-```
+  SELECT uid
+  FROM UserTable
+  WHERE username="admin" or 1;
+  ```
 
 - **Union**
 
@@ -121,26 +121,26 @@ WHERE username="admin" or 1;
 
   다음과 같이 사용함
 
-```SQL
-SELECT * FROM UserTable
-UNION SELECT "id", "pw";
-```
-
-이를 통해 다른 테이블에 접근하거나 원하는 쿼리 결과 데이터를 생성하여
-어플리케이션에서 처리되는 데이터를 조작할 수 있음
-
-Union절 사용 시 특정 조건이 만족되어야 함
-
-- 이전 SELECT 구문과 UNION SELECT 구문의 결과 컬럼의 수가 같아야함
-
-- 특정 DBMS에서 사용 시 이전 컬럼과 UNION SELECT 구문의 컬럼의 타입이 같아야 함
-
   ```SQL
-  --error
-  SELECT 'ABC'
-  UNION SELECT 123;
-  --conversion failed when converting the varchar value 'ABC' to data type int.
+  SELECT * FROM UserTable
+  UNION SELECT "id", "pw";
   ```
+
+  이를 통해 다른 테이블에 접근하거나 원하는 쿼리 결과 데이터를 생성하여
+  어플리케이션에서 처리되는 데이터를 조작할 수 있음
+
+  Union절 사용 시 특정 조건이 만족되어야 함
+
+  - 이전 SELECT 구문과 UNION SELECT 구문의 결과 컬럼의 수가 같아야함
+
+  - 특정 DBMS에서 사용 시 이전 컬럼과 UNION SELECT 구문의 컬럼의 타입이 같아야 함
+
+    ```SQL
+    --error
+    SELECT 'ABC'
+    UNION SELECT 123;
+    --conversion failed when converting the varchar value 'ABC' to data type int.
+    ```
 
 - **Subquery**
 
