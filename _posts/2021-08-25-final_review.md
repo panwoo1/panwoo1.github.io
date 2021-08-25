@@ -117,16 +117,16 @@ WHERE username="admin" or 1;
 
 - **Union**
 
-Union절은 다수의 SELECT 구문의 결과를 결합시키는 행위를 수행
+  Union절은 다수의 SELECT 구문의 결과를 결합시키는 행위를 수행
 
-다음과 같이 사용함
+  다음과 같이 사용함
 
 ```SQL
 SELECT * FROM UserTable
 UNION SELECT "id", "pw";
 ```
 
-이를 통해 다른 테이블에 접근하거나 원하는 쿼리 결과 데이터를 생성하여  
+이를 통해 다른 테이블에 접근하거나 원하는 쿼리 결과 데이터를 생성하여
 어플리케이션에서 처리되는 데이터를 조작할 수 있음
 
 Union절 사용 시 특정 조건이 만족되어야 함
@@ -135,12 +135,12 @@ Union절 사용 시 특정 조건이 만족되어야 함
 
 - 특정 DBMS에서 사용 시 이전 컬럼과 UNION SELECT 구문의 컬럼의 타입이 같아야 함
 
-```SQL
---error
-SELECT 'ABC'
-UNION SELECT 123;
---conversion failed when converting the varchar value 'ABC' to data type int.
-```
+  ```SQL
+  --error
+  SELECT 'ABC'
+  UNION SELECT 123;
+  --conversion failed when converting the varchar value 'ABC' to data type int.
+  ```
 
 - **Subquery**
 
@@ -169,18 +169,18 @@ UNION SELECT 123;
 
       - **FROM Clause(Inline View)**
 
-      ```SQL
-      SELECT * FROM (SELECT *, 1234 FROM users) as u;
-      --다중 행, 다중 컬럼의 결과를 사용할 수 있음
-      ```
+        ```SQL
+        SELECT * FROM (SELECT *, 1234 FROM users) as u;
+        --다중 행, 다중 컬럼의 결과를 사용할 수 있음
+        ```
 
       - **WHERE Clause**
 
-      ```SQL
-      SELECT * FROM users
-      WHERE username IN (SELECT "admin" UNION SELECT "guest");
-      --다중 행의  결과를 사용할 수 있음
-      ```
+        ```SQL
+        SELECT * FROM users
+        WHERE username IN (SELECT "admin" UNION SELECT "guest");
+        --다중 행의  결과를 사용할 수 있음
+        ```
 
     - **Error Based**
 
@@ -202,22 +202,22 @@ UNION SELECT 123;
 
       - **MySQL**
 
-      ```SQL
-      SELECT updatexml(null, concat(0x0a,version()), null);
+        ```SQL
+        SELECT updatexml(null, concat(0x0a,version()), null);
 
-      SELECT extractvalue(1, concat(0x3a, version()))
+        SELECT extractvalue(1, concat(0x3a, version()))
 
-      SELECT COUNT(*), CONCAT((SELECT version()),0x3a,FLOOR(RAND(0)*2)) x FROM information_schema.tables GROUP BY x;
-      ```
+        SELECT COUNT(*), CONCAT((SELECT version()),0x3a,FLOOR(RAND(0)*2)) x FROM information_schema.tables GROUP BY x;
+        ```
 
       - **MSSQL**
 
-        ```SQL
-        SELECT convert(int,@@version);
-        SELECT cast((SELECT @@version) as int);
-        ```
+            ```SQL
+            SELECT convert(int,@@version);
+            SELECT cast((SELECT @@version) as int);
+            ```
 
-        - **Oracle**
+      - **Oracle**
 
         ```SQL
         SELECT CTXSYS.DRITHSX.SN(user, (select banner from v$version where rownum=1)) FROM dual;
