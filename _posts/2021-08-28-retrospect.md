@@ -22,9 +22,9 @@ tags:
 
 스터디는 책 '해킹 맛보기'와 웹 강의 'dreamHack'을 기반으로 진행되었다.
 
-![해킹맛보기](https://user-images.githubusercontent.com/66258691/131089586-febd2aa8-676a-4b17-afbf-2c94968350e0.jpg){: width="100%" height="100%"}{: .center}
+![해킹맛보기](https://user-images.githubusercontent.com/66258691/131089586-febd2aa8-676a-4b17-afbf-2c94968350e0.jpg){: width="50%" height="50%"}{: .center}
 
-![dreamhack](https://user-images.githubusercontent.com/66258691/131089826-0e7b3b07-862c-4d8b-ae25-95e95b0c71d0.png){: .center}
+![dreamhack](https://user-images.githubusercontent.com/66258691/131089826-0e7b3b07-862c-4d8b-ae25-95e95b0c71d0.png){: width="50%" height="50%"}{: .center}
 
 ## 과정
 
